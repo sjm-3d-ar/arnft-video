@@ -14,15 +14,15 @@
 
 	<script>
 		console.log(ARnft);
-		ARnft.ARnft.init(640, 480, "DataNFT/greenlight", 'config.json', true)
+		ARnft.ARnft.init(640, 480, "DataNFT/greenlight", 'config.json', false)
 			.then((nft) => {
 				console.log(nft);
 
 				let mat = new THREE.MeshLambertMaterial({ color: 0xff0000 });
 				let cubeGeom = new THREE.CubeGeometry(1, 1, 1);
 				let cube = new THREE.Mesh(cubeGeom, mat);
-				cube.position.z = 90;
-				cube.scale.set(180, 180, 180);
+				// cube.position.z = 90;
+				cube.scale.set(3, 3, 3);
 
 				nft.add(cube);
 			}).catch((error) => {
