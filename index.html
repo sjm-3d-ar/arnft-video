@@ -9,6 +9,10 @@
 </head>
 
 <body>
+	<video id="videoSrc" autoplay loop crossOrigin="anonymous" webkit-playsinline playsinline>
+		<source src="https://avo-content-dev.s3.amazonaws.com/videos/bg_1588085276090.mp4" type='video/mp4'>
+	</video>
+
 	<script src="libs/three.min.js"></script>
 	<script src="libs/ARnft.js"></script>
 
@@ -18,13 +22,17 @@
 			.then((nft) => {
 				console.log(nft);
 
-				let mat = new THREE.MeshLambertMaterial({ color: 0xff0000 });
-				let cubeGeom = new THREE.CubeGeometry(1, 1, 1);
-				let cube = new THREE.Mesh(cubeGeom, mat);
-				// cube.position.z = 90;
-				cube.scale.set(3, 3, 3);
+				const ARVideo = document.getElementById('videoSrc');
+				const texture = new THREE.VideoTexture(ARVideo);
+				const mat = new THREE.MeshLambertMaterial({ color: 0xbbbbff, map: texture });
+				const planeGeom = new THREE.PlaneGeometry(1, 1, 1, 1);
+				const plane = new THREE.Mesh(planeGeom, mat);
+				plane.position.z = 0;
+				plane.position.x = 90;
+				plane.position.y = 90;
+				plane.scale.set(60, 60, 60);
 
-				nft.add(cube);
+				nft.add(plane);
 			}).catch((error) => {
 				console.log(error);
 			});
