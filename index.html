@@ -25,12 +25,12 @@
 				const ARVideo = document.getElementById('videoSrc');
 				const texture = new THREE.VideoTexture(ARVideo);
 				const mat = new THREE.MeshLambertMaterial({ color: 0xbbbbff, map: texture });
-				const planeGeom = new THREE.PlaneGeometry(1, 1, 1, 1);
+				const planeGeom = new THREE.PlaneGeometry(4, 3, 1, 1);
 				const plane = new THREE.Mesh(planeGeom, mat);
 				plane.position.z = 0;
 				plane.position.x = 90;
 				plane.position.y = 90;
-				plane.scale.set(60, 60, 60);
+				plane.scale.set(20, 20, 20);
 
 				nft.add(plane);
 			}).catch((error) => {
