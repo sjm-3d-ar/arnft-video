@@ -18,7 +18,7 @@
 
 	<script>
 		console.log(ARnft);
-		ARnft.ARnft.init(640, 480, "DataNFT/greenlight", 'config.json', false)
+		ARnft.ARnft.init(640, 480, "DataNFT/abc-dental", 'config.json', false)
 			.then((nft) => {
 				console.log(nft);
 
@@ -27,10 +27,7 @@
 				const mat = new THREE.MeshLambertMaterial({ color: 0xbbbbff, map: texture });
 				const planeGeom = new THREE.PlaneGeometry(4, 3, 1, 1);
 				const plane = new THREE.Mesh(planeGeom, mat);
-				plane.position.z = 0;
-				plane.position.x = 90;
-				plane.position.y = 90;
-				plane.scale.set(20, 20, 20);
+				plane.scale.set(75, 75, 75);
 
 				nft.add(plane);
 			}).catch((error) => {
